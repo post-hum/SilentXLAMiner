@@ -1,0 +1,13 @@
+C:\Users\Docker\Downloads\SilentXMRMiner\SilentXMRMiner\bin\Release\Silent XMR Miner Builder.exe.config
+C:\Users\Docker\Downloads\SilentXMRMiner\SilentXMRMiner\bin\Release\Silent XMR Miner Builder.exe
+C:\Users\Docker\Downloads\SilentXMRMiner\SilentXMRMiner\bin\Release\Silent XMR Miner Builder.pdb
+C:\Users\Docker\Downloads\SilentXMRMiner\SilentXMRMiner\bin\Release\Silent XMR Miner Builder.xml
+C:\Users\Docker\Downloads\SilentXMRMiner\SilentXMRMiner\obj\Release\Silent XMR Miner Builder.vbproj.AssemblyReference.cache
+C:\Users\Docker\Downloads\SilentXMRMiner\SilentXMRMiner\obj\Release\SilentXMRMiner.Advanced.resources
+C:\Users\Docker\Downloads\SilentXMRMiner\SilentXMRMiner\obj\Release\SilentXMRMiner.Form1.resources
+C:\Users\Docker\Downloads\SilentXMRMiner\SilentXMRMiner\obj\Release\SilentXMRMiner.Resources.resources
+C:\Users\Docker\Downloads\SilentXMRMiner\SilentXMRMiner\obj\Release\Silent XMR Miner Builder.vbproj.GenerateResource.cache
+C:\Users\Docker\Downloads\SilentXMRMiner\SilentXMRMiner\obj\Release\Silent XMR Miner Builder.vbproj.CoreCompileInputs.cache
+C:\Users\Docker\Downloads\SilentXMRMiner\SilentXMRMiner\obj\Release\Silent XMR Miner Builder.exe
+C:\Users\Docker\Downloads\SilentXMRMiner\SilentXMRMiner\obj\Release\Silent XMR Miner Builder.xml
+C:\Users\Docker\Downloads\SilentXMRMiner\SilentXMRMiner\obj\Release\Silent XMR Miner Builder.pdb

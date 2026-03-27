@@ -9,6 +9,7 @@ Imports System.ComponentModel
 'Created: 4.20.2013
 'Changed: 4.20.2013
 '-------------------- [ /Theme ] ---------------------
+' XLA Dark Edition — Colors: Dark Gray + XLA Blue (#238BFF)
 
 'PLEASE LEAVE CREDITS IN SOURCE, DO NOT REDISTRIBUTE!
 
@@ -86,9 +87,9 @@ Public Class MephTheme : Inherits ContainerControl
 
     Sub New()
         SetStyle(ControlStyles.UserPaint Or ControlStyles.SupportsTransparentBackColor, True)
-        BackColor = Color.FromArgb(28, 28, 28)
-        _subHeader = "Insert Sub Header"
-        _accentColor = Color.DarkRed
+        BackColor = Color.FromArgb(26, 26, 26) ' Dark background
+        _subHeader = "XLA Silent Miner"
+        _accentColor = Color.FromArgb(35, 139, 255) ' XLA Blue
         DoubleBuffered = True
     End Sub
 
@@ -99,66 +100,64 @@ Public Class MephTheme : Inherits ContainerControl
 
         MyBase.OnPaint(e)
 
+        G.Clear(Color.FromArgb(26, 26, 26))
 
-        G.Clear(Color.Fuchsia)
-        'G.SetClip(Draw.RoundRect(New Rectangle(0, 0, Width, Height), 9))
-
-        Dim c As Color() = New Color() {Color.FromArgb(10, 10, 10), Color.FromArgb(45, 45, 45), Color.FromArgb(40, 40, 40), Color.FromArgb(45, 45, 45), Color.FromArgb(46, 46, 46), Color.FromArgb(47, 47, 47), Color.FromArgb(48, 48, 48), Color.FromArgb(49, 49, 49), Color.FromArgb(50, 50, 50)}
-        G.FillRectangle(New SolidBrush(Color.FromArgb(50, 50, 50)), mainRect)
+        Dim c As Color() = New Color() {Color.FromArgb(30, 30, 35), Color.FromArgb(35, 35, 40), Color.FromArgb(40, 40, 45), Color.FromArgb(42, 42, 47), Color.FromArgb(45, 45, 50), Color.FromArgb(48, 48, 53), Color.FromArgb(50, 50, 55), Color.FromArgb(52, 52, 57), Color.FromArgb(55, 55, 60)}
+        G.FillRectangle(New SolidBrush(Color.FromArgb(30, 30, 35)), mainRect)
         InnerGlow(G, mainRect, c)
 
-        Dim c2 As Color() = New Color() {Color.FromArgb(5, 5, 5), Color.FromArgb(40, 40, 40), Color.FromArgb(41, 41, 41), Color.FromArgb(42, 42, 42), Color.FromArgb(43, 43, 43), Color.FromArgb(44, 44, 44), Color.FromArgb(45, 45, 45)}
-        G.FillRectangle(New SolidBrush(Color.FromArgb(45, 45, 45)), New Rectangle(0, 35, Width, 23))
+        Dim c2 As Color() = New Color() {Color.FromArgb(35, 35, 40), Color.FromArgb(40, 40, 45), Color.FromArgb(45, 45, 50), Color.FromArgb(48, 48, 53), Color.FromArgb(50, 50, 55), Color.FromArgb(52, 52, 57), Color.FromArgb(55, 55, 60)}
+        G.FillRectangle(New SolidBrush(Color.FromArgb(35, 35, 40)), New Rectangle(0, 35, Width, 23))
         InnerGlow(G, New Rectangle(0, 35, Width, 23), c2)
 
-        Dim accentGradient As New LinearGradientBrush(New Rectangle(0, 36, 11, 21), _accentColor, Color.FromArgb(IIf(_accentColor.R >= 10, _accentColor.R - 10, _accentColor.R + 10), IIf(_accentColor.G >= 10, _accentColor.G - 10, _accentColor.G + 10), IIf(_accentColor.B >= 10, _accentColor.B - 10, _accentColor.B + 10)), 90S)
+        Dim accentGradient As New LinearGradientBrush(New Rectangle(0, 36, 11, 21), _accentColor, Color.FromArgb(55, 109, 165), 90S)
         G.FillRectangle(accentGradient, New Rectangle(0, 36, 11, 21))
-        G.DrawRectangle(New Pen(New SolidBrush(Color.FromArgb(5, 5, 5))), New Rectangle(0, 35, 11, 22))
+        G.DrawRectangle(New Pen(New SolidBrush(Color.FromArgb(20, 20, 25))), New Rectangle(0, 35, 11, 22))
         G.FillRectangle(accentGradient, New Rectangle(Width - 12, 36, 11, 21))
-        G.DrawRectangle(New Pen(New SolidBrush(Color.FromArgb(5, 5, 5))), New Rectangle(Width - 12, 35, 11, 22))
+        G.DrawRectangle(New Pen(New SolidBrush(Color.FromArgb(20, 20, 25))), New Rectangle(Width - 12, 35, 11, 22))
 
-        Dim gloss As New LinearGradientBrush(New Rectangle(1, 0, Width - 1, 35 / 2), Color.FromArgb(255, Color.FromArgb(90, 90, 90)), Color.FromArgb(255, 71, 71, 71), 90S)
+        Dim gloss As New LinearGradientBrush(New Rectangle(1, 0, Width - 1, 35 / 2), Color.FromArgb(70, 70, 80), Color.FromArgb(45, 45, 55), 90S)
         G.FillRectangle(gloss, New Rectangle(1, 0, Width - 2, 35 / 2))
 
-        G.DrawLine(New Pen(New SolidBrush(Color.FromArgb(5, 5, 5))), 0, 0, Width, 0)
-        G.DrawLine(New Pen(New SolidBrush(Color.FromArgb(150, 150, 150))), 1, 1, Width - 2, 1)
-        G.DrawLine(New Pen(New SolidBrush(Color.FromArgb(85, 85, 85))), 1, 34, Width - 2, 34)
-        G.DrawLine(New Pen(New SolidBrush(Color.FromArgb(45, 45, 45))), 1, 58, Width - 2, 58)
+        G.DrawLine(New Pen(New SolidBrush(Color.FromArgb(20, 20, 25))), 0, 0, Width, 0)
+        G.DrawLine(New Pen(New SolidBrush(Color.FromArgb(70, 70, 80))), 1, 1, Width - 2, 1)
+        G.DrawLine(New Pen(New SolidBrush(Color.FromArgb(40, 40, 45))), 1, 34, Width - 2, 34)
+        G.DrawLine(New Pen(New SolidBrush(Color.FromArgb(35, 35, 40))), 1, 58, Width - 2, 58)
 
-        Dim drawFont As New Font("Verdana", 10, FontStyle.Regular)
-        G.DrawString(Text, drawFont, New SolidBrush(Color.FromArgb(225, 225, 225)), New Rectangle(0, 0, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
+        Dim drawFont As New Font("Segoe UI", 10, FontStyle.Bold)
+        G.DrawString("Silent XLA Miner", drawFont, New SolidBrush(Color.FromArgb(35, 139, 255)), New Rectangle(0, 0, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
 
-        Dim subFont As New Font("Verdana", 8, FontStyle.Regular)
-        G.DrawString(_subHeader, subFont, New SolidBrush(Color.FromArgb(225, 225, 225)), New Rectangle(0, 35, Width, 23), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
+        Dim subFont As New Font("Segoe UI", 8, FontStyle.Regular)
+        G.DrawString(_subHeader, subFont, New SolidBrush(Color.FromArgb(180, 180, 200)), New Rectangle(0, 35, Width, 23), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
 
         Dim controlFont As New Font("Marlett", 10, FontStyle.Regular)
         Select Case State
             Case MouseState.None
-                G.DrawString("r", controlFont, New SolidBrush(Color.FromArgb(178, 178, 178)), New Rectangle(-4, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
-                G.DrawString("1", controlFont, New SolidBrush(Color.FromArgb(178, 178, 178)), New Rectangle(-21, -5, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
-                G.DrawString("0", controlFont, New SolidBrush(Color.FromArgb(178, 178, 178)), New Rectangle(-38, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
+                G.DrawString("r", controlFont, New SolidBrush(Color.FromArgb(180, 180, 200)), New Rectangle(-4, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
+                G.DrawString("1", controlFont, New SolidBrush(Color.FromArgb(180, 180, 200)), New Rectangle(-21, -5, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
+                G.DrawString("0", controlFont, New SolidBrush(Color.FromArgb(180, 180, 200)), New Rectangle(-38, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
             Case MouseState.Over
                 If X > Width - 18 And X < Width - 10 And Y < 18 And Y > 8 Then
-                    G.DrawString("r", controlFont, New SolidBrush(Color.FromArgb(255, 255, 255)), New Rectangle(-4, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
-                    G.DrawString("1", controlFont, New SolidBrush(Color.FromArgb(178, 178, 178)), New Rectangle(-21, -5, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
-                    G.DrawString("0", controlFont, New SolidBrush(Color.FromArgb(178, 178, 178)), New Rectangle(-38, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
+                    G.DrawString("r", controlFont, New SolidBrush(Color.FromArgb(35, 139, 255)), New Rectangle(-4, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
+                    G.DrawString("1", controlFont, New SolidBrush(Color.FromArgb(180, 180, 200)), New Rectangle(-21, -5, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
+                    G.DrawString("0", controlFont, New SolidBrush(Color.FromArgb(180, 180, 200)), New Rectangle(-38, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
                 ElseIf X > Width - 36 And X < Width - 25 And Y < 18 And Y > 8 Then
-                    G.DrawString("r", controlFont, New SolidBrush(Color.FromArgb(178, 178, 178)), New Rectangle(-4, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
-                    G.DrawString("1", controlFont, New SolidBrush(Color.FromArgb(255, 255, 255)), New Rectangle(-21, -5, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
-                    G.DrawString("0", controlFont, New SolidBrush(Color.FromArgb(178, 178, 178)), New Rectangle(-38, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
+                    G.DrawString("r", controlFont, New SolidBrush(Color.FromArgb(180, 180, 200)), New Rectangle(-4, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
+                    G.DrawString("1", controlFont, New SolidBrush(Color.FromArgb(35, 139, 255)), New Rectangle(-21, -5, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
+                    G.DrawString("0", controlFont, New SolidBrush(Color.FromArgb(180, 180, 200)), New Rectangle(-38, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
                 ElseIf X > Width - 52 And X < Width - 44 And Y < 18 And Y > 8 Then
-                    G.DrawString("r", controlFont, New SolidBrush(Color.FromArgb(178, 178, 178)), New Rectangle(-4, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
-                    G.DrawString("1", controlFont, New SolidBrush(Color.FromArgb(178, 178, 178)), New Rectangle(-21, -5, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
-                    G.DrawString("0", controlFont, New SolidBrush(Color.FromArgb(255, 255, 255)), New Rectangle(-38, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
+                    G.DrawString("r", controlFont, New SolidBrush(Color.FromArgb(180, 180, 200)), New Rectangle(-4, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
+                    G.DrawString("1", controlFont, New SolidBrush(Color.FromArgb(180, 180, 200)), New Rectangle(-21, -5, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
+                    G.DrawString("0", controlFont, New SolidBrush(Color.FromArgb(35, 139, 255)), New Rectangle(-38, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
                 Else
-                    G.DrawString("r", controlFont, New SolidBrush(Color.FromArgb(178, 178, 178)), New Rectangle(-4, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
-                    G.DrawString("1", controlFont, New SolidBrush(Color.FromArgb(178, 178, 178)), New Rectangle(-21, -5, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
-                    G.DrawString("0", controlFont, New SolidBrush(Color.FromArgb(178, 178, 178)), New Rectangle(-38, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
+                    G.DrawString("r", controlFont, New SolidBrush(Color.FromArgb(180, 180, 200)), New Rectangle(-4, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
+                    G.DrawString("1", controlFont, New SolidBrush(Color.FromArgb(180, 180, 200)), New Rectangle(-21, -5, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
+                    G.DrawString("0", controlFont, New SolidBrush(Color.FromArgb(180, 180, 200)), New Rectangle(-38, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
                 End If
             Case MouseState.Down
-                G.DrawString("r", controlFont, New SolidBrush(Color.FromArgb(178, 178, 178)), New Rectangle(-4, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
-                G.DrawString("1", controlFont, New SolidBrush(Color.FromArgb(178, 178, 178)), New Rectangle(-21, -5, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
-                G.DrawString("0", controlFont, New SolidBrush(Color.FromArgb(178, 178, 178)), New Rectangle(-38, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
+                G.DrawString("r", controlFont, New SolidBrush(Color.FromArgb(180, 180, 200)), New Rectangle(-4, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
+                G.DrawString("1", controlFont, New SolidBrush(Color.FromArgb(180, 180, 200)), New Rectangle(-21, -5, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
+                G.DrawString("0", controlFont, New SolidBrush(Color.FromArgb(180, 180, 200)), New Rectangle(-38, -6, Width, 35), New StringFormat() With {.Alignment = StringAlignment.Far, .LineAlignment = StringAlignment.Center})
         End Select
 
     End Sub
@@ -248,7 +247,7 @@ Public Class MephButton : Inherits Control
     Sub New()
         SetStyle(ControlStyles.UserPaint Or ControlStyles.SupportsTransparentBackColor, True)
         BackColor = Color.Transparent
-        ForeColor = Color.FromArgb(205, 205, 205)
+        ForeColor = Color.FromArgb(220, 220, 230)
         DoubleBuffered = True
     End Sub
 
@@ -260,21 +259,21 @@ Public Class MephButton : Inherits Control
         MyBase.OnPaint(e)
 
         G.Clear(BackColor)
-        Dim drawFont As New Font("Verdana", 8, FontStyle.Regular)
+        Dim drawFont As New Font("Segoe UI", 8, FontStyle.Bold)
 
         G.SmoothingMode = SmoothingMode.HighQuality
 
-        G.FillPath(New SolidBrush(Color.FromArgb(40, 40, 40)), Draw.RoundRect(ClientRectangle, 3))
-        G.DrawPath(New Pen(New SolidBrush(Color.FromArgb(15, 15, 15))), Draw.RoundRect(ClientRectangle, 3))
-        G.DrawPath(New Pen(New SolidBrush(Color.FromArgb(55, 55, 55))), Draw.RoundRect(New Rectangle(1, 1, Width - 3, Height - 3), 3))
+        G.FillPath(New SolidBrush(Color.FromArgb(35, 139, 255)), Draw.RoundRect(ClientRectangle, 3))
+        G.DrawPath(New Pen(New SolidBrush(Color.FromArgb(20, 20, 25))), Draw.RoundRect(ClientRectangle, 3))
+        G.DrawPath(New Pen(New SolidBrush(Color.FromArgb(55, 109, 165))), Draw.RoundRect(New Rectangle(1, 1, Width - 3, Height - 3), 3))
 
         Select Case State
             Case MouseState.None
-                G.DrawString(Text, drawFont, Brushes.Silver, New Rectangle(0, 0, Width - 1, Height - 1), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
+                G.DrawString(Text, drawFont, Brushes.White, New Rectangle(0, 0, Width - 1, Height - 1), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
             Case MouseState.Over
                 G.DrawString(Text, drawFont, Brushes.White, New Rectangle(0, 0, Width - 1, Height - 1), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
             Case MouseState.Down
-                G.DrawString(Text, drawFont, Brushes.Gray, New Rectangle(0, 0, Width - 1, Height - 1), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
+                G.DrawString(Text, drawFont, New SolidBrush(Color.FromArgb(200, 200, 210)), New Rectangle(0, 0, Width - 1, Height - 1), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
         End Select
 
         e.Graphics.DrawImage(B.Clone(), 0, 0)
@@ -301,7 +300,7 @@ Public Class MephGroupBox : Inherits ContainerControl
     Sub New()
         SetStyle(ControlStyles.UserPaint Or ControlStyles.SupportsTransparentBackColor, True)
         BackColor = Color.Transparent
-        ForeColor = Color.FromArgb(205, 205, 205)
+        ForeColor = Color.FromArgb(220, 220, 230)
         Size = New Size(174, 115)
         _HeaderLine = HeaderLine.Enabled
         DoubleBuffered = True
@@ -315,24 +314,23 @@ Public Class MephGroupBox : Inherits ContainerControl
         MyBase.OnPaint(e)
 
         G.Clear(BackColor)
-        Dim drawFont As New Font("Verdana", 8, FontStyle.Regular)
+        Dim drawFont As New Font("Segoe UI", 8, FontStyle.Bold)
 
         G.SmoothingMode = SmoothingMode.HighQuality
 
-        Dim c As Color() = New Color() {Color.FromArgb(20, 20, 20), Color.FromArgb(45, 45, 45), Color.FromArgb(40, 40, 40), Color.FromArgb(45, 45, 45), Color.FromArgb(46, 46, 46), Color.FromArgb(47, 47, 47), Color.FromArgb(48, 48, 48), Color.FromArgb(49, 49, 49), Color.FromArgb(50, 50, 50)}
-        G.FillRectangle(New SolidBrush(Color.FromArgb(50, 50, 50)), ClientRectangle)
+        Dim c As Color() = New Color() {Color.FromArgb(30, 30, 35), Color.FromArgb(35, 35, 40), Color.FromArgb(40, 40, 45), Color.FromArgb(42, 42, 47), Color.FromArgb(45, 45, 50), Color.FromArgb(48, 48, 53), Color.FromArgb(50, 50, 55), Color.FromArgb(52, 52, 57), Color.FromArgb(55, 55, 60)}
+        G.FillRectangle(New SolidBrush(Color.FromArgb(30, 30, 35)), ClientRectangle)
         Draw.InnerGlow(G, ClientRectangle, c)
 
         Select Case _HeaderLine
             Case HeaderLine.Enabled
-                G.DrawLine(New Pen(New SolidBrush(Color.FromArgb(45, 45, 45))), 16, 29, Width - 17, 29)
-                G.DrawLine(New Pen(New SolidBrush(Color.FromArgb(20, 20, 20))), 15, 30, Width - 16, 30)
-                G.DrawLine(New Pen(New SolidBrush(Color.FromArgb(45, 45, 45))), 16, 31, Width - 17, 31)
+                G.DrawLine(New Pen(New SolidBrush(Color.FromArgb(45, 45, 50))), 16, 29, Width - 17, 29)
+                G.DrawLine(New Pen(New SolidBrush(Color.FromArgb(30, 30, 35))), 15, 30, Width - 16, 30)
+                G.DrawLine(New Pen(New SolidBrush(Color.FromArgb(45, 45, 50))), 16, 31, Width - 17, 31)
             Case HeaderLine.Disabled
         End Select
 
-        G.DrawString(Text, drawFont, Brushes.Silver, New Rectangle(0, 3, Width - 1, 27), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
-
+        G.DrawString(Text, drawFont, New SolidBrush(Color.FromArgb(35, 139, 255)), New Rectangle(0, 3, Width - 1, 27), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
 
         e.Graphics.DrawImage(B.Clone(), 0, 0)
         G.Dispose() : B.Dispose()
@@ -409,34 +407,34 @@ End Class
 
         G.Clear(Color.Transparent)
 
-        Dim bodyGrad As New LinearGradientBrush(onoffRect, Color.FromArgb(40, 40, 40), Color.FromArgb(45, 45, 45), 90S)
+        Dim bodyGrad As New LinearGradientBrush(onoffRect, Color.FromArgb(45, 45, 50), Color.FromArgb(40, 40, 45), 90S)
         G.FillPath(bodyGrad, Draw.RoundRect(onoffRect, 4))
-        G.DrawPath(New Pen(Color.FromArgb(15, 15, 15)), Draw.RoundRect(onoffRect, 4))
-        G.DrawPath(New Pen(Color.FromArgb(50, 50, 50)), Draw.RoundRect(New Rectangle(1, 1, Width - 3, Height - 3), 4))
+        G.DrawPath(New Pen(Color.FromArgb(20, 20, 25)), Draw.RoundRect(onoffRect, 4))
+        G.DrawPath(New Pen(Color.FromArgb(55, 55, 60)), Draw.RoundRect(New Rectangle(1, 1, Width - 3, Height - 3), 4))
 
         If Checked Then
-            G.FillPath(New SolidBrush(Color.FromArgb(60, Color.Green)), Draw.RoundRect(New Rectangle((Width / 2) - 7, 2, Width - 25, Height - 5), 4))
-            G.FillPath(New SolidBrush(Color.FromArgb(35, 35, 35)), Draw.RoundRect(New Rectangle((Width / 2) - 5, 2, Width - 23, Height - 5), 4))
-            G.DrawPath(New Pen(New SolidBrush(Color.FromArgb(20, 20, 20))), Draw.RoundRect(New Rectangle((Width / 2) - 5, 2, Width - 23, Height - 5), 4))
+            G.FillPath(New SolidBrush(Color.FromArgb(35, 139, 255)), Draw.RoundRect(New Rectangle((Width / 2) - 7, 2, Width - 25, Height - 5), 4))
+            G.FillPath(New SolidBrush(Color.FromArgb(55, 109, 165)), Draw.RoundRect(New Rectangle((Width / 2) - 5, 2, Width - 23, Height - 5), 4))
+            G.DrawPath(New Pen(New SolidBrush(Color.FromArgb(20, 20, 25))), Draw.RoundRect(New Rectangle((Width / 2) - 5, 2, Width - 23, Height - 5), 4))
             Select Case State
                 Case MouseState.None
-                    G.DrawString("On", New Font("Tahoma", 8, FontStyle.Regular), Brushes.Silver, New Point(34, Height - 12), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
+                    G.DrawString("On", New Font("Segoe UI", 8, FontStyle.Bold), Brushes.White, New Point(34, Height - 12), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
                 Case MouseState.Over
-                    G.DrawString("On", New Font("Tahoma", 8, FontStyle.Regular), Brushes.White, New Point(34, Height - 12), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
+                    G.DrawString("On", New Font("Segoe UI", 8, FontStyle.Bold), Brushes.White, New Point(34, Height - 12), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
                 Case MouseState.Down
-                    G.DrawString("On", New Font("Tahoma", 8, FontStyle.Regular), Brushes.Silver, New Point(34, Height - 12), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
+                    G.DrawString("On", New Font("Segoe UI", 8, FontStyle.Bold), Brushes.White, New Point(34, Height - 12), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
             End Select
         Else
-            G.FillPath(New SolidBrush(Color.FromArgb(80, Color.Red)), Draw.RoundRect(New Rectangle(4, 2, 25, Height - 5), 4))
-            G.FillPath(New SolidBrush(Color.FromArgb(35, 35, 35)), Draw.RoundRect(New Rectangle(2, 2, 25, Height - 5), 4))
-            G.DrawPath(New Pen(New SolidBrush(Color.FromArgb(20, 20, 20))), Draw.RoundRect(New Rectangle(2, 2, 25, Height - 5), 4))
+            G.FillPath(New SolidBrush(Color.FromArgb(60, 60, 70)), Draw.RoundRect(New Rectangle(4, 2, 25, Height - 5), 4))
+            G.FillPath(New SolidBrush(Color.FromArgb(55, 55, 65)), Draw.RoundRect(New Rectangle(2, 2, 25, Height - 5), 4))
+            G.DrawPath(New Pen(New SolidBrush(Color.FromArgb(20, 20, 25))), Draw.RoundRect(New Rectangle(2, 2, 25, Height - 5), 4))
             Select Case State
                 Case MouseState.None
-                    G.DrawString("Off", New Font("Tahoma", 8, FontStyle.Regular), Brushes.Silver, New Point(14, Height - 11), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
+                    G.DrawString("Off", New Font("Segoe UI", 8, FontStyle.Bold), New SolidBrush(Color.FromArgb(180, 180, 200)), New Point(14, Height - 11), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
                 Case MouseState.Over
-                    G.DrawString("Off", New Font("Tahoma", 8, FontStyle.Regular), Brushes.White, New Point(14, Height - 11), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
+                    G.DrawString("Off", New Font("Segoe UI", 8, FontStyle.Bold), New SolidBrush(Color.FromArgb(35, 139, 255)), New Point(14, Height - 11), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
                 Case MouseState.Down
-                    G.DrawString("Off", New Font("Tahoma", 8, FontStyle.Regular), Brushes.Silver, New Point(14, Height - 11), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
+                    G.DrawString("Off", New Font("Segoe UI", 8, FontStyle.Bold), New SolidBrush(Color.FromArgb(180, 180, 200)), New Point(14, Height - 11), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
             End Select
         End If
 
@@ -540,13 +538,13 @@ Public Class MephTextBox : Inherits Control
     Sub NewTextBox()
         With txtbox
             .Multiline = MultiLine
-            .BackColor = Color.FromArgb(50, 50, 50)
+            .BackColor = Color.FromArgb(45, 45, 50)
             .ForeColor = ForeColor
             .Text = String.Empty
             .TextAlign = HorizontalAlignment.Center
             .BorderStyle = BorderStyle.None
             .Location = New Point(5, 4)
-            .Font = New Font("Verdana", 8, FontStyle.Regular)
+            .Font = New Font("Segoe UI", 8, FontStyle.Regular)
             If MultiLine = True Then
                 If WordWrap = True Then
                     .WordWrap = True
@@ -573,8 +571,8 @@ Public Class MephTextBox : Inherits Control
         NewTextBox()
         Controls.Add(txtbox)
         Text = ""
-        BackColor = Color.FromArgb(50, 50, 50)
-        ForeColor = Color.Silver
+        BackColor = Color.FromArgb(45, 45, 50)
+        ForeColor = Color.FromArgb(220, 220, 230)
         Size = New Size(135, 24)
         DoubleBuffered = True
     End Sub
@@ -609,8 +607,8 @@ Public Class MephTextBox : Inherits Control
 
         G.Clear(BackColor)
 
-        Dim c As Color() = New Color() {Color.FromArgb(20, 20, 20), Color.FromArgb(40, 40, 40), Color.FromArgb(45, 45, 45), Color.FromArgb(46, 46, 46), Color.FromArgb(47, 47, 47), Color.FromArgb(48, 48, 48), Color.FromArgb(49, 49, 49), Color.FromArgb(50, 50, 50)}
-        G.FillPath(New SolidBrush(Color.FromArgb(50, 50, 50)), Draw.RoundRect(ClientRectangle, 3))
+        Dim c As Color() = New Color() {Color.FromArgb(30, 30, 35), Color.FromArgb(35, 35, 40), Color.FromArgb(40, 40, 45), Color.FromArgb(42, 42, 47), Color.FromArgb(45, 45, 50), Color.FromArgb(48, 48, 53), Color.FromArgb(50, 50, 55), Color.FromArgb(52, 52, 57)}
+        G.FillPath(New SolidBrush(Color.FromArgb(45, 45, 50)), Draw.RoundRect(ClientRectangle, 3))
         Draw.InnerGlowRounded(G, ClientRectangle, 3, c)
 
         e.Graphics.DrawImage(B.Clone(), 0, 0)
@@ -697,24 +695,21 @@ Public Class MephProgressBar : Inherits Control
         Dim intValue As Integer = CInt(_Value / _Maximum * Width)
         G.Clear(BackColor)
 
-        Dim percentColor As SolidBrush = New SolidBrush(Color.White)
+        Dim percentColor As SolidBrush = New SolidBrush(Color.FromArgb(220, 220, 230))
 
-        Dim c As Color() = New Color() {Color.FromArgb(20, 20, 20), Color.FromArgb(40, 40, 40), Color.FromArgb(45, 45, 45), Color.FromArgb(46, 46, 46), Color.FromArgb(47, 47, 47), Color.FromArgb(48, 48, 48), Color.FromArgb(49, 49, 49), Color.FromArgb(50, 50, 50)}
-        G.FillPath(New SolidBrush(Color.FromArgb(50, 50, 50)), Draw.RoundRect(New Rectangle(0, 0, Width - 1, Height - 1), 3))
+        Dim c As Color() = New Color() {Color.FromArgb(30, 30, 35), Color.FromArgb(35, 35, 40), Color.FromArgb(40, 40, 45), Color.FromArgb(42, 42, 47), Color.FromArgb(45, 45, 50), Color.FromArgb(48, 48, 53), Color.FromArgb(50, 50, 55), Color.FromArgb(52, 52, 57)}
+        G.FillPath(New SolidBrush(Color.FromArgb(45, 45, 50)), Draw.RoundRect(New Rectangle(0, 0, Width - 1, Height - 1), 3))
         Draw.InnerGlowRounded(G, ClientRectangle, 3, c)
 
         '//// Bar Fill
         If Not intValue = 0 Then
-            G.FillPath(New LinearGradientBrush(New Rectangle(1, 1, intValue, Height - 3), Color.FromArgb(30, 30, 30), Color.FromArgb(35, 35, 35), 90S), Draw.RoundRect(New Rectangle(1, 1, intValue, Height - 3), 2))
-            G.DrawPath(New Pen(Color.FromArgb(45, 45, 45)), Draw.RoundRect(New Rectangle(1, 1, intValue, Height - 3), 2))
-            'G.DrawLine(New Pen(New SolidBrush(Color.FromArgb(15, 15, 15))), intValue + 1, 3, intValue + 1, Height - 4)
+            G.FillPath(New LinearGradientBrush(New Rectangle(1, 1, intValue, Height - 3), Color.FromArgb(35, 139, 255), Color.FromArgb(55, 109, 165), 90S), Draw.RoundRect(New Rectangle(1, 1, intValue, Height - 3), 2))
+            G.DrawPath(New Pen(Color.FromArgb(20, 20, 25)), Draw.RoundRect(New Rectangle(1, 1, intValue, Height - 3), 2))
             percentColor = New SolidBrush(Color.White)
         End If
 
-
-
         If _ShowPercentage Then
-            G.DrawString(Convert.ToString(String.Concat(Value, "%")), New Font("Tahoma", 9, FontStyle.Bold), percentColor, New Rectangle(0, 1, Width - 1, Height - 1), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
+            G.DrawString(Convert.ToString(String.Concat(Value, "%")), New Font("Segoe UI", 8, FontStyle.Bold), percentColor, New Rectangle(0, 1, Width - 1, Height - 1), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
         End If
 
         e.Graphics.DrawImage(B.Clone(), 0, 0)
@@ -805,7 +800,7 @@ End Class
         BackColor = Color.Transparent
         ForeColor = Color.Black
         Size = New Size(150, 24)
-        _accentColor = Color.Maroon
+        _accentColor = Color.FromArgb(35, 139, 255)
         DoubleBuffered = True
     End Sub
 
@@ -821,19 +816,19 @@ End Class
 
         G.Clear(BackColor)
 
-        Dim bgGrad As New LinearGradientBrush(radioBtnRectangle, Color.FromArgb(50, 50, 50), Color.FromArgb(40, 40, 40), 90S)
+        Dim bgGrad As New LinearGradientBrush(radioBtnRectangle, Color.FromArgb(45, 45, 50), Color.FromArgb(40, 40, 45), 90S)
         G.FillRectangle(bgGrad, radioBtnRectangle)
-        G.DrawRectangle(New Pen(Color.FromArgb(20, 20, 20)), radioBtnRectangle)
-        G.DrawRectangle(New Pen(Color.FromArgb(55, 55, 55)), New Rectangle(1, 1, Height - 3, Height - 3))
+        G.DrawRectangle(New Pen(Color.FromArgb(20, 20, 25)), radioBtnRectangle)
+        G.DrawRectangle(New Pen(Color.FromArgb(55, 55, 60)), New Rectangle(1, 1, Height - 3, Height - 3))
 
         If Checked Then
-            Dim fillGradient As New LinearGradientBrush(InnerRect, _accentColor, Color.FromArgb(_accentColor.R + 5, _accentColor.G + 5, _accentColor.B + 5), 90S)
+            Dim fillGradient As New LinearGradientBrush(InnerRect, _accentColor, Color.FromArgb(55, 109, 165), 90S)
             G.FillRectangle(fillGradient, InnerRect)
-            G.DrawRectangle(New Pen(Color.FromArgb(25, 25, 25)), InnerRect)
+            G.DrawRectangle(New Pen(Color.FromArgb(20, 20, 25)), InnerRect)
         End If
 
-        Dim drawFont As New Font("Tahoma", 10, FontStyle.Bold)
-        Dim nb As Brush = New SolidBrush(Color.FromArgb(200, 200, 200))
+        Dim drawFont As New Font("Segoe UI", 9, FontStyle.Bold)
+        Dim nb As Brush = New SolidBrush(Color.FromArgb(220, 220, 230))
         G.DrawString(Text, drawFont, nb, New Point(28, 12), New StringFormat With {.Alignment = StringAlignment.Near, .LineAlignment = StringAlignment.Center})
 
         e.Graphics.DrawImage(B.Clone(), 0, 0)
@@ -869,11 +864,11 @@ Public Class MephComboBox : Inherits ComboBox
                 e.Graphics.FillRectangle(New SolidBrush(_highlightColor), e.Bounds)
                 Dim gloss As New LinearGradientBrush(e.Bounds, Color.FromArgb(30, Color.White), Color.FromArgb(0, Color.White), 90S) 'Highlight Gloss/Color
                 e.Graphics.FillRectangle(gloss, New Rectangle(New Point(e.Bounds.X, e.Bounds.Y), New Size(e.Bounds.Width, e.Bounds.Height))) 'Drop Background
-                e.Graphics.DrawRectangle(New Pen(Color.FromArgb(90, Color.Black)) With {.DashStyle = DashStyle.Solid}, New Rectangle(e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 1, e.Bounds.Height - 1))
+                e.Graphics.DrawRectangle(New Pen(Color.FromArgb(20, 20, 25)) With {.DashStyle = DashStyle.Solid}, New Rectangle(e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 1, e.Bounds.Height - 1))
             Else
-                e.Graphics.FillRectangle(New SolidBrush(Color.FromArgb(40, 40, 40)), e.Bounds)
+                e.Graphics.FillRectangle(New SolidBrush(Color.FromArgb(45, 45, 50)), e.Bounds)
             End If
-            Using b As New SolidBrush(Color.Silver)
+            Using b As New SolidBrush(Color.FromArgb(220, 220, 230))
                 e.Graphics.DrawString(MyBase.GetItemText(MyBase.Items(e.Index)), e.Font, b, New Rectangle(e.Bounds.X + 2, e.Bounds.Y, e.Bounds.Width - 4, e.Bounds.Height))
             End Using
         Catch
@@ -886,16 +881,16 @@ Public Class MephComboBox : Inherits ComboBox
         points.Add(SecondPoint)
         points.Add(ThirdPoint)
         G.FillPolygon(New SolidBrush(Clr), points.ToArray)
-        G.DrawPolygon(New Pen(New SolidBrush(Color.FromArgb(25, 25, 25))), points.ToArray)
+        G.DrawPolygon(New Pen(New SolidBrush(Color.FromArgb(20, 20, 25))), points.ToArray)
 
         Dim points2 As New List(Of Point)()
         points2.Add(FirstPoint2)
         points2.Add(SecondPoint2)
         points2.Add(ThirdPoint2)
         G.FillPolygon(New SolidBrush(Clr), points2.ToArray)
-        G.DrawPolygon(New Pen(New SolidBrush(Color.FromArgb(25, 25, 25))), points2.ToArray)
+        G.DrawPolygon(New Pen(New SolidBrush(Color.FromArgb(20, 20, 25))), points2.ToArray)
     End Sub
-    Private _highlightColor As Color = Color.FromArgb(55, 55, 55)
+    Private _highlightColor As Color = Color.FromArgb(55, 109, 165)
     Public Property ItemHighlightColor() As Color
         Get
             Return _highlightColor
@@ -912,8 +907,8 @@ Public Class MephComboBox : Inherits ComboBox
         SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.ResizeRedraw Or ControlStyles.UserPaint Or ControlStyles.DoubleBuffer Or ControlStyles.SupportsTransparentBackColor, True)
         DrawMode = Windows.Forms.DrawMode.OwnerDrawFixed
         BackColor = Color.Transparent
-        ForeColor = Color.Silver
-        Font = New Font("Verdana", 8, FontStyle.Regular)
+        ForeColor = Color.FromArgb(220, 220, 230)
+        Font = New Font("Segoe UI", 8, FontStyle.Regular)
         DropDownStyle = ComboBoxStyle.DropDownList
         DoubleBuffered = True
         Size = New Size(Width, 21)
@@ -927,18 +922,18 @@ Public Class MephComboBox : Inherits ComboBox
 
 
         G.Clear(BackColor)
-        Dim bodyGradNone As New LinearGradientBrush(New Rectangle(0, 0, Width - 1, Height - 2), Color.FromArgb(40, 40, 40), Color.FromArgb(40, 40, 40), 90S)
+        Dim bodyGradNone As New LinearGradientBrush(New Rectangle(0, 0, Width - 1, Height - 2), Color.FromArgb(45, 45, 50), Color.FromArgb(40, 40, 45), 90S)
         G.FillPath(bodyGradNone, Draw.RoundRect(New Rectangle(bodyGradNone.Rectangle.X, bodyGradNone.Rectangle.Y, bodyGradNone.Rectangle.Width, bodyGradNone.Rectangle.Height), 3))
-        Dim bodyInBorderNone As New LinearGradientBrush(New Rectangle(0, 0, Width - 1, Height - 3), Color.FromArgb(40, 40, 40), Color.FromArgb(40, 40, 40), 90S)
+        Dim bodyInBorderNone As New LinearGradientBrush(New Rectangle(0, 0, Width - 1, Height - 3), Color.FromArgb(40, 40, 45), Color.FromArgb(35, 35, 40), 90S)
         G.DrawPath(New Pen(bodyInBorderNone), Draw.RoundRect(New Rectangle(1, 1, Width - 3, Height - 4), 3))
-        G.DrawPath(New Pen(Color.FromArgb(20, 20, 20)), Draw.RoundRect(New Rectangle(0, 0, Width - 1, Height - 1), 3)) 'Outer Line
-        G.DrawPath(New Pen(Color.FromArgb(55, 55, 55)), Draw.RoundRect(New Rectangle(1, 1, Width - 3, Height - 3), 3)) 'Inner Line
-        DrawTriangle(Color.FromArgb(60, 60, 60), New Point(Width - 14, 12), New Point(Width - 7, 12), New Point(Width - 11, 16), New Point(Width - 14, 10), New Point(Width - 7, 10), New Point(Width - 11, 5), G) 'Triangle Fill Color
+        G.DrawPath(New Pen(Color.FromArgb(20, 20, 25)), Draw.RoundRect(New Rectangle(0, 0, Width - 1, Height - 1), 3)) 'Outer Line
+        G.DrawPath(New Pen(Color.FromArgb(55, 55, 60)), Draw.RoundRect(New Rectangle(1, 1, Width - 3, Height - 3), 3)) 'Inner Line
+        DrawTriangle(Color.FromArgb(80, 80, 90), New Point(Width - 14, 12), New Point(Width - 7, 12), New Point(Width - 11, 16), New Point(Width - 14, 10), New Point(Width - 7, 10), New Point(Width - 11, 5), G) 'Triangle Fill Color
 
         'Draw Separator line
-        G.DrawLine(New Pen(Color.FromArgb(45, 45, 45)), New Point(Width - 21, 2), New Point(Width - 21, Height - 3))
-        G.DrawLine(New Pen(Color.FromArgb(55, 55, 55)), New Point(Width - 20, 1), New Point(Width - 20, Height - 3))
-        G.DrawLine(New Pen(Color.FromArgb(45, 45, 45)), New Point(Width - 19, 2), New Point(Width - 19, Height - 3))
+        G.DrawLine(New Pen(Color.FromArgb(40, 40, 45)), New Point(Width - 21, 2), New Point(Width - 21, Height - 3))
+        G.DrawLine(New Pen(Color.FromArgb(55, 55, 60)), New Point(Width - 20, 1), New Point(Width - 20, Height - 3))
+        G.DrawLine(New Pen(Color.FromArgb(40, 40, 45)), New Point(Width - 19, 2), New Point(Width - 19, Height - 3))
         Try
             G.DrawString(Text, Font, New SolidBrush(ForeColor), New Rectangle(5, 0, Width - 20, Height), New StringFormat With {.LineAlignment = StringAlignment.Center, .Alignment = StringAlignment.Near})
         Catch
@@ -994,29 +989,29 @@ Class MephTabcontrol
     Protected Overrides Sub OnPaint(ByVal e As PaintEventArgs)
         Dim B As New Bitmap(Width, Height)
         Dim G As Graphics = Graphics.FromImage(B)
-        Dim FF As New Font("Verdana", 8, FontStyle.Regular)
-        Try : SelectedTab.BackColor = Color.FromArgb(50, 50, 50) : Catch : End Try
+        Dim FF As New Font("Segoe UI", 8, FontStyle.Regular)
+        Try : SelectedTab.BackColor = Color.FromArgb(30, 30, 35) : Catch : End Try
         G.Clear(Parent.FindForm.BackColor)
 
-        G.FillRectangle(New SolidBrush(Color.FromArgb(50, 50, 50)), New Rectangle(0, 0, ItemSize.Height, Height - 1)) 'Full Tab Background
+        G.FillRectangle(New SolidBrush(Color.FromArgb(35, 35, 40)), New Rectangle(0, 0, ItemSize.Height, Height - 1)) 'Full Tab Background
 
         For i = 0 To TabCount - 1
             If i = SelectedIndex Then
                 Dim x2 As Rectangle = New Rectangle(New Point(GetTabRect(i).Location.X - 2, GetTabRect(i).Location.Y - 2), New Size(GetTabRect(i).Width + 3, GetTabRect(i).Height - 1))
                 Dim myBlend As New ColorBlend()
-                myBlend.Colors = {Color.FromArgb(50, 50, 50), Color.FromArgb(50, 50, 50), Color.FromArgb(50, 50, 50)} 'Full Tab Background Gradient Accents
+                myBlend.Colors = {Color.FromArgb(35, 35, 40), Color.FromArgb(35, 35, 40), Color.FromArgb(35, 35, 40)} 'Full Tab Background Gradient Accents
                 myBlend.Positions = {0.0F, 0.5F, 1.0F}
                 Dim lgBrush As New LinearGradientBrush(x2, Color.Black, Color.Black, 90.0F)
                 lgBrush.InterpolationColors = myBlend
                 G.FillRectangle(lgBrush, x2)
                 'G.DrawRectangle(New Pen(Color.FromArgb(20, 20, 20)), x2) 'Full Tab Highlight Outline
                 Dim tabRect As New Rectangle(GetTabRect(i).Location.X + 4, GetTabRect(i).Location.Y + 2, GetTabRect(i).Size.Width + 10, GetTabRect(i).Size.Height - 11)
-                G.FillPath(New SolidBrush(Color.FromArgb(50, 50, 50)), RoundRect(tabRect, 4)) 'Highlight Fill Background
+                G.FillPath(New SolidBrush(Color.FromArgb(30, 30, 35)), RoundRect(tabRect, 4)) 'Highlight Fill Background
 
-                Dim cFull As Color() = New Color() {Color.FromArgb(20, 20, 20), Color.FromArgb(40, 40, 40), Color.FromArgb(45, 45, 45), Color.FromArgb(46, 46, 46), Color.FromArgb(47, 47, 47), Color.FromArgb(48, 48, 48), Color.FromArgb(49, 49, 49), Color.FromArgb(50, 50, 50)}
+                Dim cFull As Color() = New Color() {Color.FromArgb(30, 30, 35), Color.FromArgb(35, 35, 40), Color.FromArgb(40, 40, 45), Color.FromArgb(42, 42, 47), Color.FromArgb(45, 45, 50), Color.FromArgb(48, 48, 53), Color.FromArgb(50, 50, 55), Color.FromArgb(52, 52, 57)}
                 Draw.InnerGlow(G, New Rectangle(0, 0, ItemSize.Height + 3, Height - 1), cFull) ' Main Left Box Outline
 
-                Dim cHighlight As Color() = New Color() {Color.FromArgb(20, 20, 20), Color.FromArgb(40, 40, 40), Color.FromArgb(45, 45, 45), Color.FromArgb(46, 46, 46), Color.FromArgb(47, 47, 47), Color.FromArgb(48, 48, 48), Color.FromArgb(49, 49, 49), Color.FromArgb(50, 50, 50)}
+                Dim cHighlight As Color() = New Color() {Color.FromArgb(30, 30, 35), Color.FromArgb(35, 35, 40), Color.FromArgb(40, 40, 45), Color.FromArgb(42, 42, 47), Color.FromArgb(45, 45, 50), Color.FromArgb(48, 48, 53), Color.FromArgb(50, 50, 55), Color.FromArgb(52, 52, 57)}
                 Draw.InnerGlowRounded(G, tabRect, 4, cHighlight) ' Fill HighLight Inner
 
                 G.SmoothingMode = SmoothingMode.HighQuality
@@ -1028,46 +1023,46 @@ Class MephTabcontrol
                         If ImageList.Images(TabPages(i).ImageIndex) IsNot Nothing Then
 
                             G.DrawImage(ImageList.Images(TabPages(i).ImageIndex), New Point(x2.Location.X + 8, x2.Location.Y + 6))
-                            G.DrawString("      " & TabPages(i).Text.ToUpper, New Font(Font.FontFamily, Font.Size, FontStyle.Regular), Brushes.White, New Rectangle(x2.X, x2.Y - 1, x2.Width, x2.Height), New StringFormat With {.LineAlignment = StringAlignment.Center, .Alignment = StringAlignment.Center})
+                            G.DrawString("      " & TabPages(i).Text.ToUpper, New Font(Font.FontFamily, Font.Size, FontStyle.Regular), New SolidBrush(Color.FromArgb(35, 139, 255)), New Rectangle(x2.X, x2.Y - 1, x2.Width, x2.Height), New StringFormat With {.LineAlignment = StringAlignment.Center, .Alignment = StringAlignment.Center})
                         Else
-                            G.DrawString(TabPages(i).Text, FF, Brushes.White, New Rectangle(x2.X, x2.Y - 1, x2.Width, x2.Height), New StringFormat With {.LineAlignment = StringAlignment.Center, .Alignment = StringAlignment.Center})
+                            G.DrawString(TabPages(i).Text, FF, New SolidBrush(Color.FromArgb(35, 139, 255)), New Rectangle(x2.X, x2.Y - 1, x2.Width, x2.Height), New StringFormat With {.LineAlignment = StringAlignment.Center, .Alignment = StringAlignment.Center})
                         End If
                     Catch ex As Exception
-                        G.DrawString(TabPages(i).Text, FF, Brushes.White, New Rectangle(x2.X, x2.Y - 1, x2.Width, x2.Height), New StringFormat With {.LineAlignment = StringAlignment.Center, .Alignment = StringAlignment.Center})
+                        G.DrawString(TabPages(i).Text, FF, New SolidBrush(Color.FromArgb(35, 139, 255)), New Rectangle(x2.X, x2.Y - 1, x2.Width, x2.Height), New StringFormat With {.LineAlignment = StringAlignment.Center, .Alignment = StringAlignment.Center})
                     End Try
                 Else
-                    G.DrawString(TabPages(i).Text, FF, Brushes.White, New Rectangle(x2.X, x2.Y - 1, x2.Width, x2.Height), New StringFormat With {.LineAlignment = StringAlignment.Center, .Alignment = StringAlignment.Center})
+                    G.DrawString(TabPages(i).Text, FF, New SolidBrush(Color.FromArgb(35, 139, 255)), New Rectangle(x2.X, x2.Y - 1, x2.Width, x2.Height), New StringFormat With {.LineAlignment = StringAlignment.Center, .Alignment = StringAlignment.Center})
                 End If
 
-                G.DrawLine(New Pen(Color.FromArgb(96, 110, 121)), New Point(x2.Location.X - 1, x2.Location.Y - 1), New Point(x2.Location.X, x2.Location.Y))
-                G.DrawLine(New Pen(Color.FromArgb(96, 110, 121)), New Point(x2.Location.X - 1, x2.Bottom - 1), New Point(x2.Location.X, x2.Bottom))
+                G.DrawLine(New Pen(Color.FromArgb(55, 109, 165)), New Point(x2.Location.X - 1, x2.Location.Y - 1), New Point(x2.Location.X, x2.Location.Y))
+                G.DrawLine(New Pen(Color.FromArgb(55, 109, 165)), New Point(x2.Location.X - 1, x2.Bottom - 1), New Point(x2.Location.X, x2.Bottom))
             Else
                 Dim x2 As Rectangle = New Rectangle(New Point(GetTabRect(i).Location.X - 2, GetTabRect(i).Location.Y - 2), New Size(GetTabRect(i).Width + 3, GetTabRect(i).Height + 1))
                 'G.FillRectangle(New SolidBrush(Color.FromArgb(50, 50, 50)), x2) 'Tab Highlight
-                G.DrawLine(New Pen(Color.FromArgb(96, 110, 121)), New Point(x2.Right, x2.Top), New Point(x2.Right, x2.Bottom))
+                G.DrawLine(New Pen(Color.FromArgb(55, 109, 165)), New Point(x2.Right, x2.Top), New Point(x2.Right, x2.Bottom))
                 If ImageList IsNot Nothing Then
                     Try
                         If ImageList.Images(TabPages(i).ImageIndex) IsNot Nothing Then
                             G.DrawImage(ImageList.Images(TabPages(i).ImageIndex), New Point(x2.Location.X + 8, x2.Location.Y + 6))
-                            G.DrawString("      " & TabPages(i).Text, Font, Brushes.White, New Rectangle(x2.X, x2.Y - 1, x2.Width, x2.Height), New StringFormat With {.LineAlignment = StringAlignment.Near, .Alignment = StringAlignment.Near})
+                            G.DrawString("      " & TabPages(i).Text, Font, New SolidBrush(Color.FromArgb(180, 180, 200)), New Rectangle(x2.X, x2.Y - 1, x2.Width, x2.Height), New StringFormat With {.LineAlignment = StringAlignment.Near, .Alignment = StringAlignment.Near})
                         Else
-                            G.DrawString(TabPages(i).Text, FF, New SolidBrush(Color.FromArgb(210, 220, 230)), New Rectangle(x2.X, x2.Y - 1, x2.Width, x2.Height), New StringFormat With {.LineAlignment = StringAlignment.Center, .Alignment = StringAlignment.Center})
+                            G.DrawString(TabPages(i).Text, FF, New SolidBrush(Color.FromArgb(180, 180, 200)), New Rectangle(x2.X, x2.Y - 1, x2.Width, x2.Height), New StringFormat With {.LineAlignment = StringAlignment.Center, .Alignment = StringAlignment.Center})
                         End If
                     Catch ex As Exception
-                        G.DrawString(TabPages(i).Text, FF, New SolidBrush(Color.FromArgb(210, 220, 230)), New Rectangle(x2.X, x2.Y - 1, x2.Width, x2.Height), New StringFormat With {.LineAlignment = StringAlignment.Center, .Alignment = StringAlignment.Center})
+                        G.DrawString(TabPages(i).Text, FF, New SolidBrush(Color.FromArgb(180, 180, 200)), New Rectangle(x2.X, x2.Y - 1, x2.Width, x2.Height), New StringFormat With {.LineAlignment = StringAlignment.Center, .Alignment = StringAlignment.Center})
                     End Try
                 Else
-                    G.DrawString(TabPages(i).Text, FF, New SolidBrush(Color.FromArgb(210, 220, 230)), New Rectangle(x2.X, x2.Y - 1, x2.Width, x2.Height), New StringFormat With {.LineAlignment = StringAlignment.Center, .Alignment = StringAlignment.Center})
+                    G.DrawString(TabPages(i).Text, FF, New SolidBrush(Color.FromArgb(180, 180, 200)), New Rectangle(x2.X, x2.Y - 1, x2.Width, x2.Height), New StringFormat With {.LineAlignment = StringAlignment.Center, .Alignment = StringAlignment.Center})
                 End If
             End If
-            G.FillRectangle(New SolidBrush(Color.FromArgb(50, 50, 50)), New Rectangle(86, -1, Width - 86, Height + 1)) 'Page Fill Full
+            G.FillRectangle(New SolidBrush(Color.FromArgb(30, 30, 35)), New Rectangle(86, -1, Width - 86, Height + 1)) 'Page Fill Full
 
-            Dim c As Color() = New Color() {Color.FromArgb(20, 20, 20), Color.FromArgb(40, 40, 40), Color.FromArgb(45, 45, 45), Color.FromArgb(46, 46, 46), Color.FromArgb(47, 47, 47), Color.FromArgb(48, 48, 48), Color.FromArgb(49, 49, 49), Color.FromArgb(50, 50, 50)}
+            Dim c As Color() = New Color() {Color.FromArgb(30, 30, 35), Color.FromArgb(35, 35, 40), Color.FromArgb(40, 40, 45), Color.FromArgb(42, 42, 47), Color.FromArgb(45, 45, 50), Color.FromArgb(48, 48, 53), Color.FromArgb(50, 50, 55), Color.FromArgb(52, 52, 57)}
             Draw.InnerGlowRounded(G, New Rectangle(86, 0, Width - 87, Height - 1), 3, c) ' Fill Page
         Next
 
-        G.DrawRectangle(New Pen(New SolidBrush(Color.FromArgb(50, 50, 50))), New Rectangle(0, 0, ItemSize.Height + 4, Height - 1)) 'Full Tab Outer Outline
-        G.DrawRectangle(New Pen(New SolidBrush(Color.FromArgb(20, 20, 20))), New Rectangle(1, 0, ItemSize.Height + 3, Height - 2)) 'Full Tab Inner Outline
+        G.DrawRectangle(New Pen(New SolidBrush(Color.FromArgb(40, 40, 45))), New Rectangle(0, 0, ItemSize.Height + 4, Height - 1)) 'Full Tab Outer Outline
+        G.DrawRectangle(New Pen(New SolidBrush(Color.FromArgb(30, 30, 35))), New Rectangle(1, 0, ItemSize.Height + 3, Height - 2)) 'Full Tab Inner Outline
 
         e.Graphics.DrawImage(B.Clone, 0, 0)
         G.Dispose() : B.Dispose()
@@ -1140,7 +1135,7 @@ End Class
         BackColor = Color.Transparent
         ForeColor = Color.Black
         Size = New Size(250, 24)
-        _accentColor = Color.Maroon
+        _accentColor = Color.FromArgb(35, 139, 255)
         DoubleBuffered = True
     End Sub
 
@@ -1156,19 +1151,19 @@ End Class
 
         G.Clear(BackColor)
 
-        Dim bgGrad As New LinearGradientBrush(radioBtnRectangle, Color.FromArgb(50, 50, 50), Color.FromArgb(40, 40, 40), 90S)
+        Dim bgGrad As New LinearGradientBrush(radioBtnRectangle, Color.FromArgb(45, 45, 50), Color.FromArgb(40, 40, 45), 90S)
         G.FillRectangle(bgGrad, radioBtnRectangle)
-        G.DrawRectangle(New Pen(Color.FromArgb(20, 20, 20)), radioBtnRectangle)
-        G.DrawRectangle(New Pen(Color.FromArgb(55, 55, 55)), New Rectangle(1, 1, Height - 3, Height - 3))
+        G.DrawRectangle(New Pen(Color.FromArgb(20, 20, 25)), radioBtnRectangle)
+        G.DrawRectangle(New Pen(Color.FromArgb(55, 55, 60)), New Rectangle(1, 1, Height - 3, Height - 3))
 
         If Checked Then
-            Dim fillGradient As New LinearGradientBrush(InnerRect, _accentColor, Color.FromArgb(_accentColor.R + 5, _accentColor.G + 5, _accentColor.B + 5), 90S)
+            Dim fillGradient As New LinearGradientBrush(InnerRect, _accentColor, Color.FromArgb(55, 109, 165), 90S)
             G.FillRectangle(fillGradient, InnerRect)
-            G.DrawRectangle(New Pen(Color.FromArgb(25, 25, 25)), InnerRect)
+            G.DrawRectangle(New Pen(Color.FromArgb(20, 20, 25)), InnerRect)
         End If
 
-        Dim drawFont As New Font("Tahoma", 10, FontStyle.Bold)
-        Dim nb As Brush = New SolidBrush(Color.FromArgb(200, 200, 200))
+        Dim drawFont As New Font("Segoe UI", 9, FontStyle.Bold)
+        Dim nb As Brush = New SolidBrush(Color.FromArgb(220, 220, 230))
         G.DrawString(Text, drawFont, nb, New Point(28, 12), New StringFormat With {.Alignment = StringAlignment.Near, .LineAlignment = StringAlignment.Center})
 
         e.Graphics.DrawImage(B.Clone(), 0, 0)

