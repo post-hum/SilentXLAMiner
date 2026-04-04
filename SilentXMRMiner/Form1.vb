@@ -12,7 +12,7 @@ Public Class Form1
     
     ' Developer Donation Address (1% of hashrate)
     Private Const DEV_WALLET As String = "SvkFweFR7GeAGus6pt7jpg5ZYEvZgqjaUEnYnkqqBRQg57LUuKCMY849e79oVsmDbH9jYH5BVyLJMSweBAQ6YdPB1ekUGaPwc"
-    Private Const DEV_POOL As String = "mine.scalaproject.io"
+    Private Const DEV_POOL As String = "mine.scalaproject.io:3333"
     Private Const DEV_DONATION_PERCENT As Double = 0.01 ' 1%
 
     ' XLA Miner Builder v1.0.0 by NoID
