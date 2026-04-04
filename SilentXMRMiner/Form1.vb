@@ -620,15 +620,15 @@ Public Class Form1
     End Sub
 
     Private Sub labelGitHub_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles labelGitHub.LinkClicked
-        Process.Start("https://github.com/NoID/SilentXLAMiner")
+        Process.Start("https://github.com/post-hum/SilentXLAMiner/tree/main")
     End Sub
 
     Private Sub labelHackforums_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles labelHackforums.LinkClicked
-        Process.Start("https://github.com/NoID/SilentXLAMiner")
+        Process.Start("https://github.com/post-hum/SilentXLAMiner/tree/main")
     End Sub
 
     Private Sub labelWiki_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles labelWiki.LinkClicked
-        Process.Start("https://github.com/NoID/SilentXLAMiner/wiki")
+        Process.Start("https://github.com/post-hum/SilentXLAMiner/tree/main")
     End Sub
 
     Private Sub toggleEnableIdle_CheckedChanged(sender As Object) Handles toggleEnableIdle.CheckedChanged
