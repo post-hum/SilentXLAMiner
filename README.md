@@ -42,10 +42,6 @@ Pre-compiled binaries are available in [Releases](https://github.com/post-hum/Si
 
 ---
 
-## 🛠️ Build from source
-All sources are in the "master" branch
----
-
 ## 💰 Donate
 
 If this tool helped you, consider buying me a coffee (or a Red Bull for those late-night coding sessions):
